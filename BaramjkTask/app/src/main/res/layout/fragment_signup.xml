@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="loading"
+            type="Boolean"/>
+        <variable
+            name="fragmentSignup"
+            type="com.example.baramjktask.fragment.FragmentSignup"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/cl_main_layout">
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimens_30dp"
+            android:layout_marginRight="@dimen/dimens_30dp"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="@dimen/dimens_1dp"
+            android:background="@color/caldroid_white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/dimens_60dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimens_20dp">
+
+                    <TextView
+                        android:id="@+id/tv_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="User Signup"
+                        android:textSize="@dimen/dimens_18sp"
+                        android:textColor="@color/caldroid_black"
+                        />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_marginTop="@dimen/dimens_10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/TextLabel"
+                        android:layout_marginLeft="@dimen/dimens_10dp"
+                        android:layout_marginRight="@dimen/dimens_10dp">
+                        <EditText
+                            android:id="@+id/firstNameET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="First Name"
+                            android:singleLine="true"
+                            android:inputType="text"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_marginTop="@dimen/dimens_10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/TextLabel"
+                        android:layout_marginLeft="@dimen/dimens_10dp"
+                        android:layout_marginRight="@dimen/dimens_10dp">
+                        <EditText
+                            android:id="@+id/lastNameET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Last Name"
+                            android:singleLine="true"
+                            android:inputType="text"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_marginTop="@dimen/dimens_10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/TextLabel"
+                        android:layout_marginLeft="@dimen/dimens_10dp"
+                        android:layout_marginRight="@dimen/dimens_10dp">
+                        <EditText
+                            android:id="@+id/emailET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Email ID"
+                            android:singleLine="true"
+                            android:inputType="text"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_marginTop="@dimen/dimens_1dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/TextLabel"
+                        android:layout_marginLeft="@dimen/dimens_10dp"
+                        android:layout_marginRight="@dimen/dimens_10dp">
+                        <EditText
+                            android:id="@+id/passwordET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Password"
+                            android:singleLine="true"
+                            android:inputType="textVisiblePassword"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_marginTop="@dimen/dimens_10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/TextLabel"
+                        android:layout_marginLeft="@dimen/dimens_10dp"
+                        android:layout_marginRight="@dimen/dimens_10dp">
+                        <EditText
+                            android:id="@+id/userContactET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Contact number"
+                            android:singleLine="true"
+                            android:inputType="text"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/loginBtn"
+                        android:layout_marginTop="@dimen/dimens_20dp"
+                        android:layout_gravity="center"
+                        android:layout_width="150dp"
+                        android:layout_height="@dimen/dimens_40dp"
+                        android:layout_marginBottom="@dimen/dimens_10dp"
+                        android:background="@drawable/button_login_selector"
+                        android:textColor="@color/white"
+                        android:text="Signup"
+                        android:textSize="16sp"
+                        android:textAllCaps="false"
+                        android:onClick="@{()->fragmentSignup.onSignup(firstNameET.getText().toString,lastNameET.getText().toString,emailET.getText().toString,passwordET.getText().toString,userContactET.getText().toString)}"/>
+                </LinearLayout>
+                <ProgressBar
+                    android:id="@+id/progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:visibility="@{loading?View.VISIBLE:View.GONE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
